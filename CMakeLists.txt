@@ -7,6 +7,6 @@ find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 find_package(Threads)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
-add_library(lib STATIC src/businesses.cpp)
+add_library(lib STATIC src/businesses.cpp src/utility.cpp)
 target_compile_options(${PROJECT_NAME} PUBLIC -pthread)
 target_link_libraries(${PROJECT_NAME} lib sfml-graphics pthread)
