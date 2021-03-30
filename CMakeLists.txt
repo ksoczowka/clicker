@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(SFML_DIR "/usr/lib/cmake/SFML")
+project(Clicker)
+find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
+find_package(Threads)
+
+add_executable(${PROJECT_NAME} src/main.cpp)
+add_library(lib STATIC src/businesses.cpp)
+target_compile_options(${PROJECT_NAME} PUBLIC -pthread)
+target_link_libraries(${PROJECT_NAME} lib sfml-graphics pthread)
