@@ -5,5 +5,6 @@ class Student{
  public:
     Student();
  private:
-    
+    Quantity quantity;
+    Quantity upgrade;
 };

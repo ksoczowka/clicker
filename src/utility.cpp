@@ -1,12 +1,12 @@
 #include "utility.hpp"
 
-Quantity::Quantity(){
-    hundreds = 0;
-    thousands = 0;
-    millions = 0;
-    billions = 0;
-    trillions = 0;
-    max = false;
+Quantity::Quantity(int hund, int thous, int mill, int bill, int trill, bool mx){
+    hundreds = hund;
+    thousands = thous;
+    millions = mill;
+    billions = bill;
+    trillions = trill;
+    max = mx;
 }
 bool Quantity::operator<(Quantity& other) {
     if(trillions < other.trillions) return true;
@@ -82,15 +82,6 @@ Quantity Quantity::operator+(Quantity& other) {
         max = true;
     }
     
-    return *this;
-}
-Quantity Quantity::operator=(Quantity& other) {
-    thousands = other.thousands;
-    millions = other.millions;
-    billions = other.billions;
-    trillions = other.trillions;
-    max = other.max;
-
     return *this;
 }
 bool Quantity::isMax(){
