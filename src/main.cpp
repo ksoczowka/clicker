@@ -1,8 +1,9 @@
 #include "main.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Clicker", sf::Style::Titlebar | sf::Style::Close);
-
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Clicker", sf::Style::Titlebar | sf::Style::Close, settings);
     while(window.isOpen()) {
         sf::Event event;
         while(window.pollEvent(event)) {
@@ -10,6 +11,7 @@ int main() {
                 window.close();
             }
         }
+        student.update(cursor, &window);
         renderWindow(&window);
         window.display();
     }
@@ -17,6 +19,6 @@ int main() {
     return 0;
 }
 void renderWindow(sf::RenderTarget* target) {
-    target->clear(sf::Color(23, 23, 23));
-
+    target->clear(sf::Color(64, 64, 64));
+    student.render(target);
 }

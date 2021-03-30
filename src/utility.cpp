@@ -1,6 +1,6 @@
 #include "utility.hpp"
 
-Quantity::Quantity(int hund, int thous, int mill, int bill, int trill, bool mx){
+Quantity::Quantity(int hund, int thous, int mill, int bill, int trill, bool mx) {
     hundreds = hund;
     thousands = thous;
     millions = mill;
@@ -39,7 +39,6 @@ Quantity Quantity::operator-(Quantity& other) {
     if(thousands < other.thousands) {
         millions--;
         thousands += 1000;
-            
     }
     if(millions < other.millions) {
         billions--;
@@ -54,6 +53,7 @@ Quantity Quantity::operator-(Quantity& other) {
     millions -= other.millions;
     billions -= other.billions;
     trillions -= other.trillions;
+
     return *this;
 }
 Quantity Quantity::operator+(Quantity& other) {
@@ -84,6 +84,6 @@ Quantity Quantity::operator+(Quantity& other) {
     
     return *this;
 }
-bool Quantity::isMax(){
+bool Quantity::isMax() {
     return max;
 }
